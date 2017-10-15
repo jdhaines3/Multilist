@@ -171,6 +171,9 @@ void Multilist::insert(int stu, int cla)
 
 void Multilist::printStudent()
 {
+	
+	std::cout << "" << std::endl;
+	
 	//make sure itr is at beginning
 	this->itrStu = this->header->nextStudent;
 	//while loop going through students
@@ -195,11 +198,12 @@ void Multilist::printStudent()
 		this->itrStu = this->itrStu->nextStudent;
 	}
 	
-	std::cout << "" << std::endl;
 }
 	
 void Multilist::printClass()
 {
+	std::cout << "" << std::endl;
+	
 	//same thing as print student but with class and student swapped\
 	//make sure itr is at beginning
 	this->itrCla = this->header->nextClass;
@@ -226,7 +230,6 @@ void Multilist::printClass()
 		this->itrCla = this->itrCla->nextClass;
 	}
 	
-	std::cout << "" << std::endl;
 }
 
 void Multilist::remove(int stu, int cla)
