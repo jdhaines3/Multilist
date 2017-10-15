@@ -158,12 +158,10 @@ void Multilist::insert(int stu, int cla)
 void Multilist::printStudent()
 {
 	//make sure itr is at beginning
-	this->itrStu = this->header;
+	this->itrStu = this->header->nextStudent;
 	//while loop going through students
 	while (this->itrStu != NULL)
 	{
-		//increment before printing due to starting at header to reach next index node
-		this->itrStu = this->itrStu->nextStudent;
 		//set class itr to stud itr to be in same col
 		this->itrCla = this->itrStu;
 		//increment to get to non-index node
@@ -179,6 +177,8 @@ void Multilist::printStudent()
 		
 		//print endl
 		std::cout << std::endl;
+		//increment before printing due to starting at header to reach next index node
+		this->itrStu = this->itrStu->nextStudent;
 	}
 }
 	
@@ -186,12 +186,10 @@ void Multilist::printClass()
 {
 	//same thing as print student but with class and student swapped\
 	//make sure itr is at beginning
-	this->itrCla = this->header;
+	this->itrCla = this->header->nextClass;
 	//while loop going through students
 	while (this->itrCla != NULL)
 	{
-		//increment before printing due to starting at header to reach next index node
-		this->itrCla = this->itrCla->nextClass;
 		//set class itr to stud itr to be in same col
 		this->itrStu = this->itrCla;
 		//increment to get to non-index node
@@ -207,6 +205,9 @@ void Multilist::printClass()
 		
 		//print endl
 		std::cout << std::endl;
+		
+		//increment before printing due to starting at header to reach next index node
+		this->itrCla = this->itrCla->nextClass;
 	}
 }
 
