@@ -138,7 +138,7 @@ void Multilist::insert(int stu, int cla)
 	else if(this->itrStu->nextStudent->studNum > stu)
 	{
 		//set next node to temp and insert new node
-		temp = this->itrStu->nextStu;
+		temp = this->itrStu->nextStudent;
 		this->itrStu->nextStudent = addNode;
 		this->itrStu->nextStudent->nextStudent = temp;
 		//no need to iterate again due to resetting back to header for row insertion
@@ -169,11 +169,11 @@ void Multilist::printStudent()
 		//increment to get to non-index node
 		this->itrCla = this->itrCla->nextClass;
 		//start print, flush to stay on same line
-		std::cout << "Student #" + this->itrStu->studNum + ", Classes: " << std::flush;
+		std::cout << "Student #" << this->itrStu->studNum << ", Classes: " << std::flush;
 		while (this->itrCla != NULL)
 		{
 			//add class num of next node, then iterate to next node
-			std::cout << this->itrCla->classNum + "   " << std::flush;
+			std::cout << this->itrCla->classNum << "   " << std::flush;
 			this->itrCla = this->itrCla->nextClass;
 		}
 		
@@ -197,11 +197,11 @@ void Multilist::printClass()
 		//increment to get to non-index node
 		this->itrStu = this->itrStu->nextStudent;
 		//start print, flush to stay on same line
-		std::cout << "Class #" + this->itrCla->classNum + ", Students: " << std::flush;
+		std::cout << "Class #" << this->itrCla->classNum << ", Students: " << std::flush;
 		while (this->itrStu != NULL)
 		{
 			//add class num of next node, then iterate to next node
-			std::cout << this->itrStu->studNum + "   " << std::flush;
+			std::cout << this->itrStu->studNum << "   " << std::flush;
 			this->itrStu = this->itrStu->nextStudent;
 		}
 		
