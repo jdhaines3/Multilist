@@ -138,9 +138,6 @@ void Multilist::insert(int stu, int cla)
 	}
 	if(this->itrStu->studNum == stu)
 	{
-		//if node already there, delete the newly created one
-		delete addNode;
-		std::cout << "Node already exists." <<std::endl;
 	}
 	else if (this->itrStu->nextStudent == NULL)
 	{
