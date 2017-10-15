@@ -25,6 +25,7 @@ void menu (Multilist * multi)
 	//while loop for menu
 	while (keepGoing == 0)
 	{
+		std::cout << "" << std::endl;
 		std::cout << "1) Add Student/Class Node" << std::endl;
 		std::cout << "2) Print out list of students with respective classes" << std::endl;
 		std::cout << "3) Print out list of classes with respective students" << std::endl;
@@ -117,7 +118,7 @@ void menu (Multilist * multi)
 			std::cout << "Incorrect input, please enter the numeral of what you wish to do.\n" << std::endl;
 		}
 	}
-	
+	std::cout << "" << std::endl;
 	std::cout << "Thank you, and goodbye" << std::endl;
 }
 

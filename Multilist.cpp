@@ -37,6 +37,8 @@ void Multilist::insert(int stu, int cla)
 	{
 		this->itrStu = this->itrStu->nextStudent;
 	}
+	
+	
 	//if reached end
 	if (this->itrStu->studNum == stu)
 	{
@@ -67,6 +69,8 @@ void Multilist::insert(int stu, int cla)
 	}
 	//if equal, iterator in correct spot and no new node needed
 	
+	
+	
 	//set class iterator to student iterator to go down the column
 	this->itrCla = this->itrStu;
 	
@@ -75,6 +79,7 @@ void Multilist::insert(int stu, int cla)
 	{
 		this->itrCla = this->itrCla->nextClass;
 	}
+	
 	if(this->itrCla->classNum == cla)
 	{
 		//if node already there, delete the newly created one
@@ -185,6 +190,8 @@ void Multilist::printStudent()
 		//increment before printing due to starting at header to reach next index node
 		this->itrStu = this->itrStu->nextStudent;
 	}
+	
+	std::cout << "" << std::endl;
 }
 	
 void Multilist::printClass()
@@ -214,6 +221,8 @@ void Multilist::printClass()
 		//increment before printing due to starting at header to reach next index node
 		this->itrCla = this->itrCla->nextClass;
 	}
+	
+	std::cout << "" << std::endl;
 }
 
 void Multilist::remove(int stu, int cla)
