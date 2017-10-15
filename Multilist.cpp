@@ -38,7 +38,11 @@ void Multilist::insert(int stu, int cla)
 		this->itrStu = this->itrStu->nextStudent;
 	}
 	//if reached end
-	if (this->itrStu->nextStudent == NULL)
+	if (this->itrStu->studNum == stu)
+	{
+		//do nothing
+	}
+	else if (this->itrStu->nextStudent == NULL)
 	{
 		Multilist::Node * stuIndx = new Node(stu, 0);
 		//make next student the new index node
@@ -71,7 +75,13 @@ void Multilist::insert(int stu, int cla)
 	{
 		this->itrCla = this->itrCla->nextClass;
 	}
-	if (this->itrCla->nextClass == NULL)
+	if(this->itrCla->classNum == cla)
+	{
+		//if node already there, delete the newly created one
+		delete addNode;
+		std::cout << "Node already exists." <<std::endl;
+	}
+	else if (this->itrCla->nextClass == NULL)
 	{
 		//if itr reaches end, add the new node
 		this->itrCla->nextClass = addNode;
@@ -86,24 +96,22 @@ void Multilist::insert(int stu, int cla)
 		this->itrCla->nextClass->nextClass = temp;
 		//no need to iterate again due to resetting back to header for row insertion
 	}
-	else if(this->itrCla->nextClass->classNum == cla)
-	{
-		//if node already there, delete the newly created one
-		delete addNode;
-		std::cout << "Node already exists." <<std::endl;
-	}
 	
 	//reset iterators for insertion into class index
 	this->itrCla = this->header;
 	this->itrStu = this->header;
 	
-	//repeat for class index
+	//-------repeat for class index----------//
 	while (this->itrCla->nextClass != NULL && this->itrCla->nextClass->classNum <= cla)
 	{
 		this->itrCla = this->itrCla->nextClass;
 	}
 	//if reached end
-	if (this->itrCla->nextClass == NULL)
+	if (this->itrCla->classNum == stu)
+	{
+		//do nothing
+	}
+	else if (this->itrCla->nextClass == NULL)
 	{
 		Multilist::Node * classIndx = new Node(0, cla);
 		this->itrCla->nextClass = classIndx;
@@ -128,7 +136,13 @@ void Multilist::insert(int stu, int cla)
 	{
 		this->itrStu = this->itrStu->nextStudent;
 	}
-	if (this->itrStu->nextStudent == NULL)
+	if(this->itrStu->studNum == stu)
+	{
+		//if node already there, delete the newly created one
+		delete addNode;
+		std::cout << "Node already exists." <<std::endl;
+	}
+	else if (this->itrStu->nextStudent == NULL)
 	{
 		//if itr reaches end, add the new node
 		this->itrStu->nextStudent = addNode;
@@ -142,12 +156,6 @@ void Multilist::insert(int stu, int cla)
 		this->itrStu->nextStudent = addNode;
 		this->itrStu->nextStudent->nextStudent = temp;
 		//no need to iterate again due to resetting back to header for row insertion
-	}
-	else if(this->itrStu->nextStudent->studNum == stu)
-	{
-		//if node already there, delete the newly created one
-		delete addNode;
-		std::cout << "Node already exists." <<std::endl;
 	}
 	
 	this->itrStu = this->header;
