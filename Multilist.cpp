@@ -40,7 +40,7 @@ void Multilist::insert(int stu, int cla)
 	//if reached end
 	if (this->itrStu->nextStudent == NULL)
 	{
-		Multilist::Node * stuIndx = new Node(0, stu);
+		Multilist::Node * stuIndx = new Node(stu, 0);
 		//make next student the new index node
 		this->itrStu->nextStudent = stuIndx;
 		//make stuIndex nextStudent pointer to Null
@@ -51,7 +51,7 @@ void Multilist::insert(int stu, int cla)
 	else if(this->itrStu->nextStudent->studNum > stu)
 	{
 		//create index
-		Multilist::Node * stuIndx = new Node(0, stu);
+		Multilist::Node * stuIndx = new Node(stu, 0);
 		//set temp to next node
 		temp = this->itrStu->nextStudent;
 		//set next node to new index node
@@ -105,14 +105,14 @@ void Multilist::insert(int stu, int cla)
 	//if reached end
 	if (this->itrCla->nextClass == NULL)
 	{
-		Multilist::Node * classIndx = new Node(cla, 0);
+		Multilist::Node * classIndx = new Node(0, cla);
 		this->itrCla->nextClass = classIndx;
 		classIndx->nextClass = NULL;
 		this->itrCla = this->itrCla->nextClass;
 	}
 	else if (this->itrCla->nextClass->classNum > cla)
 	{
-		Multilist::Node * classIndx = new Node(cla, 0);
+		Multilist::Node * classIndx = new Node(0, cla);
 		temp = this->itrCla->nextClass;
 		this->itrCla->nextClass = classIndx;
 		this->itrCla->nextClass->nextClass = temp;
