@@ -37,14 +37,16 @@ void menu (Multilist * multi)
 		
 		std::cin >> inputMenu;
 		
-		//checking input
+		/*checking input
+		if valid number, do what it says, else re-display menu */
 		if (inputMenu == "1")
 		{
-			//input for student and class
+			//input for student and class, and string stream for conversion string to int
 			std::string student = "";
 			std::string clas = "";
 			std::stringstream ss;
 			
+			//loop bools and numbers to enter as insert arguments
 			int studentGo = 0;
 			int classGo = 0;
 			int studentNum, clasNum;
@@ -63,6 +65,7 @@ void menu (Multilist * multi)
 				ss << student;
 				ss >> stud;
 				
+				//check if valid range
 				if (stud < 1 || stud > 10000)
 				{
 					std::cout << "Invalid student number, please try again." << std::endl;
@@ -74,6 +77,7 @@ void menu (Multilist * multi)
 				}
 			}
 			
+			//same as student entry
 			while (classGo == 0)
 			{
 				std::cout << std::endl;
@@ -100,21 +104,26 @@ void menu (Multilist * multi)
 			
 			multi->insert(studentNum, clasNum);
 			
+			//choosing this menu option again allows for other student/class additions
 		}
 		else if (inputMenu == "2")
 		{
+			//call printstrudents function
 			multi->printStudent();
 		}
 		else if (inputMenu == "3")
 		{
+			//call printclass function
 			multi->printClass();
 		}
 		else if (inputMenu == "4")
 		{
+			//exit menu and program
 			keepGoing = 1;
 		}
 		else
 		{
+			//else display menu again
 			std::cout << "Incorrect input, please enter the numeral of what you wish to do.\n" << std::endl;
 		}
 	}
@@ -122,8 +131,10 @@ void menu (Multilist * multi)
 	std::cout << "Thank you, and goodbye" << std::endl;
 }
 
+//main function
 int main()
 {
+	//make new multilist, pass it into menu, delete it when done
 	Multilist * multi = new Multilist();
 	menu(multi);
 	delete multi;
