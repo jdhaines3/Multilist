@@ -33,7 +33,7 @@ void Multilist::insert(int stu, int cla)
 	this->itrStu = this->header;
 	
 	//iterate through list until the next number is greater than pointer or you reach end
-	while (this->itrStu->nextStudent != NULL && this->itrStu->nextStudent->studNum < stu)
+	while (this->itrStu->nextStudent != NULL && this->itrStu->nextStudent->studNum =< stu)
 	{
 		this->itrStu = this->itrStu->nextStudent;
 	}
@@ -67,7 +67,7 @@ void Multilist::insert(int stu, int cla)
 	this->itrCla = this->itrStu;
 	
 	//from student col, iterate down
-	while (this->itrCla->nextClass != NULL && this->itrCla->nextClass->classNum < cla)
+	while (this->itrCla->nextClass != NULL && this->itrCla->nextClass->classNum =< cla)
 	{
 		this->itrCla = this->itrCla->nextClass;
 	}
@@ -98,7 +98,7 @@ void Multilist::insert(int stu, int cla)
 	this->itrStu = this->header;
 	
 	//repeat for class index
-	while (this->itrCla->nextClass != NULL && this->itrCla->nextClass->classNum < cla)
+	while (this->itrCla->nextClass != NULL && this->itrCla->nextClass->classNum =< cla)
 	{
 		this->itrCla = this->itrCla->nextClass;
 	}
@@ -124,7 +124,7 @@ void Multilist::insert(int stu, int cla)
 	this->itrStu = this->itrCla;
 	
 	//from student col, iterate down
-	while (this->itrStu->nextStudent != NULL && this->itrStu->nextStudent->studNum < stu)
+	while (this->itrStu->nextStudent != NULL && this->itrStu->nextStudent->studNum =< stu)
 	{
 		this->itrStu = this->itrStu->nextStudent;
 	}
