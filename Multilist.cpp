@@ -106,13 +106,17 @@ void Multilist::insert(int stu, int cla)
 	this->itrCla = this->header;
 	this->itrStu = this->header;
 	
+	
+	
+	
+	
 	//-------repeat for class index----------//
 	while (this->itrCla->nextClass != NULL && this->itrCla->nextClass->classNum <= cla)
 	{
 		this->itrCla = this->itrCla->nextClass;
 	}
 	//if reached end
-	if (this->itrCla->classNum == stu)
+	if (this->itrCla->classNum == cla)
 	{
 		//do nothing
 	}
