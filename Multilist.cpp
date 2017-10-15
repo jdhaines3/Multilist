@@ -213,3 +213,7 @@ void Multilist::printClass()
 void Multilist::remove(int stu, int cla)
 {
 }
+
+Multilist::~Multilist()
+{
+}
